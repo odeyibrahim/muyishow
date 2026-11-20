@@ -232,37 +232,26 @@ body{line-height:1.8}
 .js .stp:nth-child(2){transition-delay:.12s}.js .stp:nth-child(3){transition-delay:.24s}.js .stp:nth-child(4){transition-delay:.36s}
 @media(prefers-reduced-motion:reduce){.js .stp{opacity:1;transform:none}.big .wd>i[style*="italic"]{transition:none}}
 
-/* ===== v12: type scale matched to the v5 presentation ===== */
-body{font-size:18.5px;line-height:1.72}
-@media(max-width:560px){body{font-size:17.5px}}
-.logo{font-size:26px}@media(max-width:560px){.logo{font-size:19px}}
-.big{font-size:clamp(56px,14vw,230px);line-height:.88;letter-spacing:-.04em}
+/* ===== v12: presentation-scale TITLES only ===== */
+.big{font-size:clamp(44px,14vw,230px);line-height:.88;letter-spacing:-.04em}
 h2{font-size:clamp(38px,5vw,76px);letter-spacing:-.02em}
-.grid>h2:first-child,.wl h2,.eh h2{font-size:clamp(38px,5vw,76px);letter-spacing:-.025em;line-height:1}
-h3{font-size:30px}
-.lead{font-size:clamp(24px,2.5vw,36px);line-height:1.22}
-.home .lead{font-size:clamp(21px,2vw,29px)}
-.note{font-size:14.5px}
-.stmt,.sp .stmt{font-size:clamp(44px,8.6vw,140px);line-height:.96;letter-spacing:-.03em;max-width:12em}
+.grid>h2:first-child,.wl h2{font-size:clamp(32px,3.6vw,52px);letter-spacing:-.025em;line-height:1.02}
+.eh h2{font-size:clamp(38px,5vw,76px);line-height:1}
+.stmt,.sp .stmt{font-size:clamp(44px,8.6vw,140px);line-height:.98;letter-spacing:-.03em;max-width:12em}
 .sp-g{grid-template-columns:minmax(0,1fr)}.sp .fig{justify-self:end;width:min(100%,460px);margin-top:clamp(48px,6vw,96px)}.sp-t{max-width:600px}
 .home .big{max-width:none;margin-bottom:clamp(40px,5vw,80px)}
 .hero{padding-top:calc(68px + clamp(40px,5vw,72px))}
-.btn,.hc{font-size:12.5px;font-weight:600}#mb,.hp,.k,label{font-size:12.5px}
-.list b{font-size:28px;font-weight:400}.list span,.list p{font-size:17px}
-.card .t{font-size:13.5px;text-transform:none;letter-spacing:0}
-.facts dt{font-size:clamp(56px,7vw,104px)}.facts dd{font-size:17px}
-.flag h3{font-size:clamp(34px,3.8vw,56px)}.prob{font-size:clamp(24px,2.5vw,34px)}
-.stp h3{font-size:30px}.stp p{font-size:17px}.sn{font-size:clamp(56px,5vw,80px)}
 .loc b{font-size:clamp(64px,13vw,200px);letter-spacing:-.04em}
-.ocard b{font-size:clamp(56px,7.4vw,120px)}.ocard span:last-child{font-size:17px}
+.ocard b{font-size:clamp(56px,7.4vw,120px)}
 .cta h2{font-size:clamp(48px,9vw,150px);letter-spacing:-.035em;line-height:.92;max-width:9em}
 .post h3{font-size:clamp(28px,3.4vw,46px)}
-.ft .ffn{font-size:30px}.ft .fz p{font-size:14px}
-.wd{padding:.04em .04em .24em;margin:-.04em -.04em -.24em}
+/* word masks: room for tall ascenders and descenders so no title is clipped */
+.wd{padding:.16em .08em .3em;margin:-.16em -.08em -.3em}
+@media(max-width:400px){.logo{font-size:15.5px;gap:8px}.logo .mk{width:34px}#mb{min-width:68px;padding:10px 11px}.hr{gap:6px}}
 /* ===== motion layer (GSAP + Lenis) ===== */
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
 html.hold #pre{opacity:1!important;visibility:visible!important}
-html.gs .wd>i,html.gs .in>.wd>i,html.gs h2 .wd>i,html.gs .stmt .wd>i{transform:translateY(112%);transition:none}
+html.gs .wd>i,html.gs .in>.wd>i,html.gs h2 .wd>i,html.gs .stmt .wd>i{transform:none;opacity:0;transition:none}
 html.gs .stp,html.gs .stp.in{opacity:1;transform:none;transition:none}
 html.gs .fig,html.gs .pfig{overflow:hidden}
 /* ===== admin mode ===== */
@@ -607,10 +596,10 @@ if(ctx)ctx.revert();var pg=$('.pg.on');if(!pg)return;var mob=innerWidth<900;
 ctx=gsap.context(function(){
 /* headings: words rise, the italic accent arrives last */
 $$('.big,h2',pg).forEach(function(h){var w=$$('.wd>i',h);if(!w.length)return;var tl=gsap.timeline({paused:true});
-w.forEach(function(x,i){tl.fromTo(x,{yPercent:112},{yPercent:0,duration:1.25,ease:'expo.out'},i*.06+(x.style.fontStyle==='italic'?.4:0))});
+w.forEach(function(x,i){tl.fromTo(x,{yPercent:125,opacity:1},{yPercent:0,opacity:1,duration:1.25,ease:'expo.out'},i*.06+(x.style.fontStyle==='italic'?.4:0))});
 ScrollTrigger.create({trigger:h,start:'top 92%',once:true,onEnter:function(){gsap.delayedCall(D(),function(){tl.play()})}})});
 /* statement: words light up as it scrolls */
-$$('.stmt',pg).forEach(function(s){var w=$$('.sw',s);if(!w.length)return;gsap.set(w,{opacity:.16});gsap.to(w,{opacity:1,ease:'none',stagger:.12,scrollTrigger:{trigger:s,start:'top 82%',end:'bottom 48%',scrub:.5}})});
+$$('.stmt',pg).forEach(function(s){var w=$$('.sw',s);if(!w.length)return;gsap.set(w,{opacity:.3});gsap.to(w,{opacity:1,ease:'none',stagger:.1,scrollTrigger:{trigger:s,start:'top 88%',end:'bottom 72%',scrub:.4}})});
 /* stat counters */
 $$('.facts dt[data-gv]',pg).forEach(function(e){var g=e.getAttribute('data-gv'),n=parseInt(g,10),p=/\+$/.test(g),o={v:0};if(isNaN(n))return;e.textContent='0'+(p?'+':'');
 ScrollTrigger.create({trigger:e,start:'top 90%',once:true,onEnter:function(){gsap.to(o,{v:n,duration:1.8,ease:'power3.out',delay:D(),onUpdate:function(){e.textContent=Math.round(o.v)+(p?'+':'')}})}})});
@@ -646,7 +635,8 @@ intro();H.classList.remove('hold');
 $$('[data-px]').forEach(function(e){e.removeAttribute('data-px')});$$('[data-scrub]').forEach(function(e){e.removeAttribute('data-scrub')});
 addEventListener('hashchange',function(){if(location.hash==='#admin')return;gate=performance.now()+700;
 if(lenis)lenis.scrollTo(0,{immediate:true,force:true});gsap.to(hd,{yPercent:0,duration:.4,overwrite:true});gone=false;
-setTimeout(function(){build();ScrollTrigger.refresh()},40)});
+setTimeout(function(){build();ScrollTrigger.refresh();safe()},40)});
+function safe(){setTimeout(function(){$$('.pg.on .wd>i').forEach(function(i){var r=i.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0&&parseFloat(getComputedStyle(i).opacity)===0)gsap.set(i,{opacity:1,yPercent:0})})},5000)}safe();
 addEventListener('load',function(){ScrollTrigger.refresh()});if(d.fonts&&d.fonts.ready)d.fonts.ready.then(function(){ScrollTrigger.refresh()});
 window.MSCO=window.MSCO||{};window.MSCO.motion=true;
 }catch(err){console.error('motion fallback',err);try{if(ctx)ctx.revert();if(lenis)lenis.destroy()}catch(e){}H.classList.remove('gs','hold')}}
