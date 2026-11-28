@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Site editor · Muyi Sowemimo &amp; Co.</title>
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+<div id="boot" class="center"><p>Loading…</p></div>
+
+<main id="login" class="center" hidden>
+  <form class="card" id="lf" autocomplete="on">
+    <span class="mk" aria-hidden="true"></span>
+    <h1>Staff sign in</h1>
+    <label>Email<input id="l-e" type="email" autocomplete="username" required></label>
+    <label>Password<input id="l-p" type="password" autocomplete="current-password" required></label>
+    <p class="msg" id="l-m" role="status"></p>
+    <button class="btn" type="submit">Sign in</button>
+    <button class="lnk" type="button" id="l-f">Forgot password?</button>
+  </form>
+</main>
+
+<main id="setpw" class="center" hidden>
+  <form class="card" id="pf" autocomplete="off">
+    <span class="mk" aria-hidden="true"></span>
+    <h1>Choose a password</h1>
+    <p class="hint">At least 8 characters.</p>
+    <label>New password<input id="p-1" type="password" autocomplete="new-password" required></label>
+    <label>Repeat it<input id="p-2" type="password" autocomplete="new-password" required></label>
+    <p class="msg" id="p-m" role="status"></p>
+    <button class="btn" type="submit">Save and continue</button>
+  </form>
+</main>
+
+<div id="ed" hidden>
+  <header class="top">
+    <span class="mk" aria-hidden="true"></span>
+    <strong>Site editor</strong>
+    <span class="who" id="who"></span>
+    <span class="sp"></span>
+    <button class="sm" id="b-pv" type="button">Preview</button>
+    <a class="sm" href="/" target="_blank" rel="noopener">View site</a>
+    <button class="sm" id="b-rb" type="button" title="Refreshes the copy that search engines and no-JavaScript visitors see">Refresh search copy</button>
+    <button class="sm" id="b-out" type="button">Sign out</button>
+  </header>
+  <div class="shell">
+    <aside class="side">
+      <label class="selw">Section<select id="sel"></select></label>
+      <nav id="nav" aria-label="Sections"></nav>
+    </aside>
+    <section class="main">
+      <div class="ph">
+        <h2 id="ptitle"></h2>
+        <div class="acts"><span class="state" id="state"></span><button class="sm" id="b-rv" type="button">Undo changes</button><button class="sm" id="b-df" type="button">Original text</button><button class="btn" id="b-sv" type="button">Save and publish</button></div>
+      </div>
+      <div id="form"></div>
+    </section>
+    <section class="prev" id="prev">
+      <div class="pbar"><button class="sm on" data-w="phone" type="button">Phone</button><button class="sm" data-w="desk" type="button">Desktop</button><button class="sm x" id="pv-x" type="button">Close</button></div>
+      <div class="frame"><iframe id="pv" title="Preview of the site" src="/?preview=1"></iframe></div>
+    </section>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/content.default.js"></script>
+<script src="/assets/js/render.js"></script>
+<script src="/admin/schema.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/admin/admin.js"></script>
+</body>
+</html>
