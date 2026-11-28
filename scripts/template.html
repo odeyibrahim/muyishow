@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-NG" data-route="{{ROUTE}}" data-param="{{PARAM}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#3a0b14">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="{{CANON}}">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<meta property="og:type" content="{{OGTYPE}}">
+<meta property="og:site_name" content="{{NAME}}">
+<meta property="og:locale" content="en_NG">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:url" content="{{CANON}}">
+<meta property="og:image" content="{{OGIMG}}">
+<meta property="og:image:alt" content="{{NAME}}: counsel with a long memory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESC}}">
+<meta name="twitter:image" content="{{OGIMG}}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+{{FONT_LINK}}
+<link rel="stylesheet" href="/assets/css/site.css">
+<style id="font-vars">{{FONT_CSS}}</style>
+<script src="/assets/js/boot.js"></script>
+{{JSONLD}}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="app">{{APP}}</div>
+<noscript><style>.rv,.rt .wd>i{opacity:1!important;transform:none!important}</style></noscript>
+<script type="application/json" id="msco-content">{{CONTENT}}</script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/render.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

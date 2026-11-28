@@ -1,0 +1,24 @@
+{
+  "name": "Muyi Sowemimo & Co.",
+  "short_name": "Muyi Sowemimo",
+  "description": "Independent Nigerian law firm in Abuja and Abeokuta: regulatory permits, corporate and commercial, private client and diaspora, property, energy and mining.",
+  "lang": "en-NG",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#3a0b14",
+  "theme_color": "#3a0b14",
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
